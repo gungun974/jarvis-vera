@@ -1,0 +1,2 @@
+*ALLUM[^ ]+ (*)==pg_vc_turn on "(1)"
+*ETEIN[^ ]+ (*)==pg_vc_turn off "(1)"
