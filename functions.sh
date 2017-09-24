@@ -13,9 +13,9 @@ pg_vc_turn () {
     if [[ true ]]; then
         say "$(pg_vc_lang "switching_$1" "$2")"
         if [[ $1 == "on" ]]; then
-        	jv_curl "http://"+$pg_vc_vera_ip+":3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=1&DeviceNum=40"
+        	jv_curl "http://$pg_vc_vera_ip:3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=1&DeviceNum=40"
         else
-        	jv_curl "http://"+$pg_vc_vera_ip+":3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=0&DeviceNum=40"
+        	jv_curl "http://$pg_vc_vera_ip:3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=0&DeviceNum=40"
         fi
         return $?
     fi
