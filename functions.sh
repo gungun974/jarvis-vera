@@ -11,11 +11,11 @@ pg_vc_turn () {
     # $1: action [on|off]
     # $2: received order
     if [[ true ]]; then
-        say "$(pg_vc_lg "switching_$1" "$2")"
+        say "$(pg_vc_lang "switching_$1" "$2")"
         if [[ $1 == "on" ]]; then
-        	jv_curl $pg_vc_vera_ip+"http://192.168.1.14:3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=1&DeviceNum=40"
+        	jv_curl "http://"+$pg_vc_vera_ip+":3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=1&DeviceNum=40"
         else
-        	jv_curl $pg_vc_vera_ip+"http://192.168.1.14:3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=0&DeviceNum=40"
+        	jv_curl "http://"+$pg_vc_vera_ip+":3480/data_request?id=action&output_format=json&serviceId=urn:upnp-org:serviceId:SwitchPower1&action=SetTarget&newTargetValue=0&DeviceNum=40"
         fi
         return $?
     fi
